@@ -52,3 +52,7 @@ SOFTWARE.
 For any questions regarding this project, please reach out via email:
 
 woffordbt@gmail.com
+
+<!-- client side routes -->
+<!-- focus just on 4 routes -->
+<!-- get all workouts, then create route, then aggregate and sum -->
