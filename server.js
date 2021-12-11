@@ -33,7 +33,7 @@ app.get("/api/workouts", (req, res) => {
 });
 
 app.put("/api/workouts", (req, res) => {
-  db.Workout.use({}).then((workouts) => {
+  db.Workout.create({}).then((workouts) => {
     res.json(workouts);
   });
 });
