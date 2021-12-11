@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const exerciseSchema = new Schema({
@@ -15,6 +15,10 @@ const workoutSchema = new Schema({
   day: { type: Date, default: Date.now },
   exercises: [exerciseSchema],
 });
+
+const Workout = mongoose.model("Workout", workoutSchema);
+
+module.exports = Workout;
 
 // {
 //     day: new Date(new Date().setDate(new Date().getDate() - 9)),
