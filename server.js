@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,9 +16,19 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useFindAndModify: false,
 });
 
-// // routes
-// app.use(require("./routes/api.js"));
+// HTML Routes
+app.get("/exercise", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/exercise.html"));
+});
 
-// app.listen(PORT, () => {
-//   console.log(`App running on port ${PORT}!`);
-// });
+app.get("/stats", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/stats.html"));
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
+});
