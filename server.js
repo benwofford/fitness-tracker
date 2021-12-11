@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false,
 });
@@ -23,6 +23,22 @@ app.get("/exercise", (req, res) => {
 
 app.get("/stats", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/stats.html"));
+});
+
+app.get("/api/workouts", (req, res) => {
+  res.json();
+});
+
+app.put("/api/workouts", (req, res) => {
+  res.json();
+});
+
+app.post("/api/workouts", (req, res) => {
+  res.json();
+});
+
+app.get("/api/workouts/range", (req, res) => {
+  res.json();
 });
 
 app.get("*", (req, res) => {
