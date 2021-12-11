@@ -27,21 +27,23 @@ app.get("/stats", (req, res) => {
 });
 
 app.get("/api/workouts", (req, res) => {
-  db.Workout.find({}).then((workouts) => {
+  db.Workout.aggregate({}).then((workouts) => {
     res.json(workouts);
   });
 });
 
 app.put("/api/workouts", (req, res) => {
-  res.json();
+  db.Workout.use({}).then((workouts) => {
+    res.json(workouts);
+  });
 });
 
-app.post("/api/workouts", (req, res) => {
-  res.json();
-});
+app.post("/api/workouts", (req, res) => {});
 
 app.get("/api/workouts/range", (req, res) => {
-  res.json();
+  db.Workout.aggregate({}).then((workouts) => {
+    res.json(workouts);
+  });
 });
 
 app.get("*", (req, res) => {
