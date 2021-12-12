@@ -33,12 +33,16 @@ app.get("/api/workouts", (req, res) => {
 });
 
 app.put("/api/workouts", (req, res) => {
-  db.Workout.create({}).then((workouts) => {
+  db.Workout.updateMany({}).then((workouts) => {
     res.json(workouts);
   });
 });
 
-app.post("/api/workouts", (req, res) => {});
+app.post("/api/workouts", (req, res) => {
+  db.Workout.create({}).then((workouts) => {
+    res.json(workouts);
+  });
+});
 
 app.get("/api/workouts/range", (req, res) => {
   db.Workout.aggregate({}).then((workouts) => {
