@@ -13,7 +13,23 @@ The deployment can be found [here](https://evening-escarpment-68052.herokuapp.co
 
 ## Screenshots
 
-(TODO: add screenshots)
+Here's the landing page for the application,
+<img src="/screenshots/landing-page.png">
+
+This is the initial look at the charts in the dashboard with seeded data,
+<img src="/screenshots/dashboard-1.png">
+
+An exercise is added,
+<img src="/screenshots/add-exercise.png">
+
+And it shows up in the chart on the dashboard,
+<img src="/screenshots/dashboard-2.png">
+
+A cardio exercise is added,
+<img src="/screenshots/cardio-add.png">
+
+And it is shown on the dashboard,
+<img src="/screenshots/dashboard-3.png">
 
 ## Features
 
