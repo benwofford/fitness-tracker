@@ -1,8 +1,8 @@
 # Fitness Tracker
 
-This application allows the user to view, create and track daily workouts.
+This application allows the user to create, track and view daily workouts.
 
-The deployment can be found [here](TODO:)
+The deployment can be found [here](https://evening-escarpment-68052.herokuapp.com/)s
 
 ## Table of Contents
 
@@ -13,11 +13,11 @@ The deployment can be found [here](TODO:)
 
 ## Screenshots
 
---
+(TODO: add screenshots)
 
 ## Features
 
---
+This application allows the user to track resistance and cardio workouts by inputting the appropriate information after which the data is tabulated and shown on graphs on the dashboard for reference.
 
 ## Repository
 
@@ -51,8 +51,4 @@ SOFTWARE.
 
 For any questions regarding this project, please reach out via email:
 
-woffordbt@gmail.com
-
-<!-- client side routes -->
-<!-- focus just on 4 routes -->
-<!-- get all workouts, then create route, then aggregate and sum -->
+benwofforddev@gmail.com
