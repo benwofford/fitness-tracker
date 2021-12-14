@@ -54,7 +54,7 @@ app.put("/api/workouts/:id", (req, res) => {
 // POST new workout
 app.post("/api/workouts", (req, res) => {
   Workout.create({
-    day: new Date(new Date().setDate(new Date().getDate() - 9)),
+    // day: new Date(new Date().setDate(new Date().getDate() - 9)),
     exercises: req.data,
   })
     .then((newWorkout) => {
