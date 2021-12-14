@@ -1,12 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const db = require("./models");
+// const db = require("./models");
 
 const PORT = process.env.PORT || 3000;
 
-const app = express();
+const Workout = require("./models/workout");
 
+const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -22,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 
 // GET most recent workout
 app.get("/api/workouts", (req, res) => {
-  db.Workout.aggregate([
+  Workout.aggregate([
     { $sort: { _id: -1 } },
     { $limit: 1 },
     { $addFields: { totalDuration: { $sum: "$exercises.duration" } } },
@@ -38,7 +39,7 @@ app.get("/api/workouts", (req, res) => {
 // PUT a new exercise in a Workout document's array
 app.put("/api/workouts/:id", (req, res) => {
   let newExercise = req.body;
-  db.Workout.findOneAndUpdate(
+  Workout.findOneAndUpdate(
     { _id: req.params.id },
     { $push: { exercises: newExercise } }
   )
@@ -52,7 +53,7 @@ app.put("/api/workouts/:id", (req, res) => {
 
 // POST new workout
 app.post("/api/workouts", (req, res) => {
-  db.Workout.create({
+  Workout.create({
     day: new Date(new Date().setDate(new Date().getDate() - 9)),
     exercises: req.data,
   })
@@ -66,7 +67,7 @@ app.post("/api/workouts", (req, res) => {
 
 // GET all workouts
 app.get("/api/workouts/range", (req, res) => {
-  db.Workout.aggregate([
+  Workout.aggregate([
     { $match: { _id: { $exists: true } } },
     { $addFields: { totalDuration: { $sum: "$exercises.duration" } } },
   ])
