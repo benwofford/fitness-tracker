@@ -16,6 +16,6 @@ const exerciseSchema = new Schema({
   ],
 });
 
-const Workout = mongoose.model("Workout", workoutSchema);
+const Workout = mongoose.model("Workout", exerciseSchema);
 
 module.exports = Workout;
