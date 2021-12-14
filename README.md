@@ -2,7 +2,7 @@
 
 This application allows the user to create, track and view daily workouts.
 
-The deployment can be found [here](https://evening-escarpment-68052.herokuapp.com/)s
+The deployment can be found [here](https://evening-escarpment-68052.herokuapp.com/)
 
 ## Table of Contents
 
