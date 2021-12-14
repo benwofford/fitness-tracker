@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 
 // GET most recent workout
 app.get("/api/workouts", (req, res) => {
-  Workout.aggregate([
+  db.Workout.aggregate([
     { $sort: { _id: -1 } },
     { $limit: 1 },
     { $addFields: { totalDuration: { $sum: "$exercises.duration" } } },
@@ -38,7 +38,7 @@ app.get("/api/workouts", (req, res) => {
 // PUT a new exercise in a Workout document's array
 app.put("/api/workouts/:id", (req, res) => {
   let newExercise = req.body;
-  Workout.findOneAndUpdate(
+  db.Workout.findOneAndUpdate(
     { _id: req.params.id },
     { $push: { exercises: newExercise } }
   )
@@ -52,7 +52,7 @@ app.put("/api/workouts/:id", (req, res) => {
 
 // POST new workout
 app.post("/api/workouts", (req, res) => {
-  Workout.create({
+  db.Workout.create({
     day: new Date(new Date().setDate(new Date().getDate() - 9)),
     exercises: req.data,
   })
@@ -66,7 +66,7 @@ app.post("/api/workouts", (req, res) => {
 
 // GET all workouts
 app.get("/api/workouts/range", (req, res) => {
-  Workout.aggregate([
+  db.Workout.aggregate([
     { $match: { _id: { $exists: true } } },
     { $addFields: { totalDuration: { $sum: "$exercises.duration" } } },
   ])
